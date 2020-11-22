@@ -1,0 +1,65 @@
+syntax = "proto3";
+
+option java_package = "de.uniba.rz.io.rpc";
+option java_multiple_files = true;
+option java_outer_classname = "TicketManagement";
+
+option objc_class_prefix = "RTG";
+
+service TicketService{
+   
+    rpc addTicket(gRPCticket) returns (gRPCack){};
+    rpc getTicket(gRPCindex) returns (gRPCticketlist){};
+    rpc updateTicketStatus(gRPCupdateReq) returns (gRPCack){};
+    
+}
+
+message gRPCindex{
+	int32 index = 1;
+}
+message gRPCstatus{
+enum   tstatus {
+    	NEW = 0;
+    	ACCEPTED = 2;
+    	REJECTED = 3;
+    	CLOSED = 4;
+  	}
+  	tstatus ticketstatus=1;
+}
+message gRPCticketlist{
+	repeated gRPCticket gRPCticketlisElement = 1;
+}
+message gRPCupdateReq {
+	int32 index=1;
+	
+    gRPCstatus newstatus =2;
+  }
+  
+message gRPCticket {
+    int32 id = 1;
+    string reporter = 2;
+    string topic = 3;
+    string description = 4;
+    
+  enum   tickettype {
+    	TASK = 0;
+    	ENHANCEMENT = 1;
+    	BUG = 2;
+    	QUESTION = 3;
+  }
+  tickettype type =5; 
+  enum   ticketpriority {
+    	CRITICAL = 0;
+    	MAJOR = 1;
+    	MINOR = 2;
+  }
+  ticketpriority priority = 6;
+  
+ 
+  gRPCstatus tstatus = 7;
+}
+
+message gRPCack {
+    bool ticketAck = 1;
+}
+
