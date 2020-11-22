@@ -1,18 +1,5 @@
-# How it runs ?
-import any of the assignments on eclipse or intellij  
-* To run in UDP method, 3 arguments needed:  'udp' hostname  portnumber
+# information 
+In each assignemt we transfer messages via different protocols The first one is UDP and Amqp methods in the Second one gRPC methode The third one is Rest method
 
-* for AMQP method, 4 arguments needed: 'AMQP'  hostname  queueName   push|pull
-
-Queue properties are in config.properties file
-
-* for gRPC method, 3 arguments needed: 'gRPC' hostname  portnumber
-
-* for REST method, 1 argument  needed: 'Rest' (URI is in config.properties file)
-
-* Otherwise Local method will be used 
-
-*case insensitive*
-
-** log file for client: clientlogfile.log
-** log file for server: serverlogfile.log
+# How it Runs ?
+Simply import project on eclicpse or intellij and follow the steps wrritten in each ReadMe file in each assignment.
