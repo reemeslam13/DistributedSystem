@@ -1,3 +1,4 @@
+# information
 * To run in UDP method, 3 arguments needed:  'udp' hostname portnumber
 
 * for AMQP method, 4 arguments needed: 'AMQP' hostname queueName push|pull
